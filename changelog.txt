@@ -1,0 +1,446 @@
+SmartSVN 6.6.4 (2011-01-26)
+===========================
+Improvements
+------------
+- Update Check (manual): inform about major new versions 
+
+Fixed Bugs
+----------
+- Annotate: can't be cancelled
+- Checkout: possible internal error when checking out from thirdy-party
+  SVN servers
+- Commit: checksum mismatch for replaced files
+- Conflict Solver: certain conflicts were not detected
+- Copy URL: should encode URLs
+- File Compare/Conflict Solver: cancelling "Line Separator" dialog
+  still proceeds with Save
+- Merge Preview/Apply Patch: Show Changes/Conflict Solver were never
+  enabled
+- Merge: possible internal error
+- Merge: xMerge should not be available for files
+- Settings: on Unix, paths relative to the home directory, e.g.
+  ~/bin/svnserve were not expanded correctly
+- Setup Repository dialog, success page: description text is truncated
+- Startup (after fresh install on OS X):
+  - in the welcome dialog the disabled radio button was preselected
+  - import-settings question was shown on second main frame
+- Update: possible internal error for "Rebuild SVN admin area completely" 
+- Various dialogs: For "Metal L&F", if a dialog is shown, the CPU
+  is at ~50%
+- Various tables: focus problems for "Move Up"/"Move Down"
+
+
+SmartSVN 6.6.3 (2010-11-19)
+===========================
+New Features
+------------
+- Commit: support for client-side pre-commit hook scripts
+
+Improvements
+------------
+- Cleanup: should always be available
+- Commit wizard, Files page: added context menu to the file selection
+  table containing selection related menu items
+- Externals: prefer ^/ over ../
+- JIRA integration: system property
+  "-Dsmartsvn.plugin.jira.show-resolve-dialog=false" to disable
+  "Resolve" dialog
+- Project Settings: by default, ".ai" file extension should be considered
+  as binary
+
+Fixed Bugs
+----------
+- Add Repository Profile dialog, Details page: using arrow keys to toggle
+  SVN Login options did not update the enabled state of User Name and
+  Password
+- Annotate: long commit message caused the combobox to show a black popup
+- Checkout: Possible error (when checking out from github)
+- Compare Repository Directories: should prevent having the same
+  path+revision for from and to
+- Error dialog after a failed server side hook was by default too small
+- Externals: internal error when entering ../ for path instead of URL
+- File compare, export to html: assertion if the file was added or removed
+- HTTP-proxy authentication did not work (e.g. for Check for New Version)
+- JIRA integration: huge error dialog in case of invalid
+  "workflow action id"
+- Log: [+] and [-] icons in the revision-table were only clickable
+  in the upper area
+- Log: "Stop" did not work when performing direct logs onto repository
+- Log: Wrong dates in HTML/text export
+- Memory leaks resolved
+- OS X: Possible crash of file chooser
+- OS X: Possible internal error on Drag and Drop
+- Project Settings: If "Native" EOLs were set to "CRLF", line endings got
+  confused to "LFCR"
+- Remote State: Dead-lock during Refresh
+- Repository Profiles Manager: Internal error when editing svn+ssh://
+  repository without supplying a private key
+- Shell integration: possible internal error when viewing content of ZIP
+  files
+- Transactions: Copy-actions did not work on revisions (regression since
+  6.5.x)
+- Windows installer did not install tagMultiple.jar plugin
+
+
+SmartSVN 6.6.2 (2010-09-16)
+===========================
+Fixed Bugs
+----------
+- Checkout: internal error when answering "Do you want to additionally
+  check out the path up to the project root?" with "Yes"
+- Commit: message was lost when stepping back in wizard
+- Commit: text files with EOL-style set to "as-is" were rejected with
+  "Inconsistent EOL-Style" warning
+- Log: Export did not output copyfrom-information
+- Log Cache: Possible endless "EOF" error on build/rebuild
+- Remote State: broken for externals (regression since 6.6.1)
+- Transactions: rare multi-threading bug, related to bugtraq-properties
+
+
+SmartSVN 6.6.1 (2010-09-03)
+===========================
+Improvements
+------------
+- Changes view: if multiple files are selected, navigate between them only
+  and move the lead selection only
+- JIRA-plugin: avoid resolve button if nothing is resolvable
+- Master Password: invalid passwords should not disable the OK button, but
+  instead "shake away" when pressing OK
+- OS X: "server" should not be started on OS X 10.6 (it's not needed)
+- Perspectives: toolbar buttons
+- Remote Status: stale locks should not be reported
+- Tables: System property "q.verboseDate=false" to disable verbose date
+  display
+
+Fixed Bugs
+----------
+- Changes view should not be visible by default in the Main perspective
+- Commit: possible endless internal errors when pressing Ctrl-Z in commit
+  message field
+- Commit: UTF-16 files for which "encoding=UTF-16" has been configured in
+  the svn:mime-type were reported as "Inconsistent EOL"
+- Copy within Repository: internal error when invoked without opened
+  project
+- Copy within Repository: internal error when leaving destination
+  "Directory" blank
+- JIRA plugin: possible internal error
+- Log (Foundation version only): internal error when invoked on directory
+- Refresh: possible internal error (related to .svn/all-wc-props check)
+- Refresh: possible internal error when manually invoking Refresh
+  immediately after closing the project
+- Remote State: file externals with fixed revision were always reported as
+  modified
+- Revision Graph: "File not found: revision ..." error when displaying
+  merge arrows
+- Transactions: "Select in Project" did not work on revisions
+  (regression since 6.5.x)
+- xMerge: possible internal error in case of replaced trunk/branches
+
+
+SmartSVN 6.6 (2010-08-20)
+=========================
+Changes since version 6.5:
+
+New Features
+------------
+- Changes view, integrated in main window (former Change Report)
+- Commit: support for 'tsvn:logtemplate' property (message templates)
+- Compare with Previous: to compare file against previous commit
+- Edit Working Copy: to edit the path of the selected (maybe missing)
+  working copy root
+- File Table: ability to drag files out of SmartSVN
+- File editor: Save As to save file under new name
+- Log: Copy Name
+- Log: Export to File
+- OS X: Finder integration using services
+- "Perspectives" for Project window layout (Window menu)
+- Plugin-API available in SmartSVN Professional
+- Remove Working Copy: to remove working copy root from project
+- Repository Browser: Compare Directories
+- Shell integration: Check out
+- Tag Browser: Delete Branch
+- Various dialogs: Instruction texts
+
+Improvements
+------------
+- Add branch/tag: option to skip local changes
+- Check Out: when selecting directory below trunk, ask whether to check
+  out directories up to trunk non-recursively
+- Commit: allow to use "One Commit Message" even when different
+  buqgtraq-properties are present
+- Commit: check for inconsistent svn:eol-style before commit
+- Commit: if "Add unversioned files"/"Remove missing files" is unselected,
+  don't ignore these files completely, but just don't select them by
+  default
+- Commit: remember "One commit message"/"Individual commit messages"
+  selection
+- Commit: smarter initial sort order on "Files" page
+- Commit: warn if committing switched entries
+- Compare: curved left-right-link connector
+- Compare Repository Directories: distinguish between content/property
+  modifications
+- Create Patch between URLs: can be cancelled
+- Edit|Customize: customize accelerators directly in the current frame
+  instead of the preferences
+- Externals: when selecting to fix externals, URLs of relative externals
+  should be expanded
+- Log, Revision Graph: ability to display the directory property changes
+- Log, Transactions: verbose date formatting
+- Log/Revision Graph: remember frame layout
+- Log: "Commit Info" field shows more details about the current revision
+- Log Cache: don't show confirmation dialog if the user has no options
+- Merge: support for "!" in revision ranges to exclude revisions
+- Output view: query commands are not displayed anymore
+- Output view: new icons
+- Progress Bar: hidden if nothing is progressing
+- Refresh (Windows): conflicting names (in .svn/entries) are detected
+  and reported
+- Refresh: give priority in refreshing the path from root down to the
+  currently selected file
+- Repository Browser: file filter input field
+- Repository Browser: character encoding used to display file contents can
+  be changed
+- Repository Browser: Create Directory has option to create
+  trunk-branch-tag structure
+- Repository Browser: Remove is applicable on multiple directories
+- Repository Browser: Open allows to enter arbitrary URL
+- Repository Browser: inapplicable actions are not disabled, but show
+  information dialog when being invoked
+- Status bar: shows the number of selected directories (not just files)
+- Switch: tell user to relocate, if they URL instead of path has been
+  entered
+- Toolbar: button for Modify|Switch
+- Toolbar: ability to add stretching separators for being able to create
+  larger button groups
+- Text editors: ability to use non-fixed fonts, allowing asian characters
+  to be displayed correctly
+- Transactions: Configure Watched URLs dialog remembers size
+- Transactions: ability to group by watched URL
+- Update: "Include externals" instead of "Ignore externals"
+- Various dialogs: "Mac" labels in combination with CR line endings removed
+- Various commands: spell checking for "commit message" editors
+- Various frames: display of transferred bytes
+- xMerge: optionally update working copy to clean revision
+
+Fixed Bugs (since SmartSVN 6.5)
+-------------------------------
+- Commit: confusing error message when trying to commit merged changes
+- Commit: shouldn't suggest modified files which are not selected for the
+  commit to unlock
+- Change Sets: if an unchanged entry is *intentionally* added to Change
+  Set, "allow only committable entries" has not been reset
+- Change Sets: renaming a file should preserve Change Set  
+- Log Cache: possible internal error
+- Merge: executable flag incorrectly set
+- Merge dialog: when selecting a history branch with @<revision>, the
+  input field was not filled with the @<revision>
+- Refresh: confusing error message if a working copy was removed from a
+  multi-root project
+- Refresh (64-Bit Windows): file monitor does not work  
+- Remote State: possible internal error
+- Repository Browser: Tag-Branch-Layouts were not considered for Revision
+  Graph
+- Repository Profiles: duplicate Profiles might have caused confusion for
+  authentication
+- Revision Graph: possible mis-detection of removed tags/branches
+- Revision chooser: previously selected "Peg revision" was reset on
+  re-opening
+- Transactions: for a revision for which e.g. multiple tags have been
+  removed, only "." instead of tag name was displayed
+- Transactions: possible internal error when invoking actions
+- Update dialog (and others): HEAD got disabled after Peg revision has
+  been set in the revision browser
+- Various commands: after cancelling the "Configure Tag-Branch-Layout"
+  dialog, the command's dialog was still displayed
+- Various commands: possible internal error related to DAV-URL checks
+- Various commands: revision choosers were not reset when invoking the
+  command on a different location
+- Various commands: table cells with HTML text autowrap under certain
+  conditions
+- xMerge preview: Revision Graph is not enabled in most cases
+
+                      
+SmartSVN 6.6 (GA) (2010-08-20)
+==============================
+Fixed Bugs
+----------
+- Change Sets: renaming a file should preserve Change Set  
+
+
+SmartSVN 6.6 RC3 (2010-08-17)
+=============================
+Improvements
+------------
+- Commit: smarter initial sort order on "Files" page
+- Commit: if "Add unversioned files"/"Remove missing files" is unselected,
+  don't ignore these files completely, but just don't select them by
+  default
+- Externals: when selecting to fix externals, URLs of relative externals
+  should be expanded
+- Log Cache: don't show confirmation dialog if the user has no options
+
+Fixed Bugs
+----------
+- Checkout wizard: export options were initially enabled even if export is
+  unselected
+- Commit: shouldn't suggest modified files which are not selected for the
+  commit to unlock
+- Customize toolbar: removing separators by dropping them into the
+  available list was adding them to this list, even multiple times
+- Merge: executable flag incorrectly set
+- Refresh (64-Bit Windows): file monitor does not work  
+- Transactions: possible internal error when invoking actions
+- xMerge: suggested to update to non-existant revision
+
+
+SmartSVN 6.6 RC2 (2010-08-10)
+=============================
+Fixed Bugs
+----------
+- Contact Support plugin: Internal error in case of email configuration
+  problems
+- Startup (Foundation edition): Crash when trying to open Project window
+- Startup (Unix): Error message "Unrecognized VM option
+  '-UseSSE42Intrinsics'"
+  
+
+SmartSVN 6.6 RC1 (2010-08-09)
+=============================
+Improvements
+------------
+- Help updated
+
+Fixed Bugs
+----------
+- Commit: On "Repositories" page, "One commit message" is not remembered
+- Log: For Export to File, some mnemonics are missing
+- Mac OS X: Work-around for critical Java Virtual Machine bug 6875866,
+  affecting Intel Nehalem CPUs, e.g. Core i7, and possibly resulting
+  in various strange internal errors
+
+
+SmartSVN 6.6 beta 2 (2010-07-30)
+================================
+Improvements
+------------
+- Compare: curved left-right-link connector
+- Various dialogs: "Mac" labels in combination with CR line endings removed
+
+Fixed Bugs
+----------
+- Annotate: possible internal error
+- Commit: on "Externals" page, selection of "One commit message" is not
+  remembered
+- File Table/Directory Tree: toggling View-filters did not work
+- OS X: if SmartSVN has been started by a service command execution
+  (Finder), clicking the tray icon did not open an empty window
+- Perspectives: default layouts (Ctrl-Alt-1, Ctrl-Alt-2) are identical
+- Switch, Merge (Foundation version only): bad dialog layout
+- Update: updating a nested remote directory fails with "skipped"
+
+
+SmartSVN 6.6 beta 1 (2010-07-27)
+================================
+New Features
+------------
+- Changes view, integrated in main window (former Change Report)
+- Commit: support for 'tsvn:logtemplate' property (message templates)
+- Compare with Previous: to compare file against previous commit
+- Edit Working Copy: to edit the path of the selected (maybe missing)
+  working copy root
+- File Table: ability to drag files out of SmartSVN
+- File editor: Save As to save file under new name
+- Log: Copy Name
+- Log: Export to File
+- OS X: Finder integration using services
+- "Perspectives" for Project window layout (Window menu)
+- Plugin-API available in SmartSVN Professional
+- Remove Working Copy: to remove working copy root from project
+- Repository Browser: Compare Directories
+- Shell integration: Check out
+- Tag Browser: Delete Branch
+- Various dialogs: Instruction texts
+
+Improvements
+------------
+- Add branch/tag: option to skip local changes
+- Check Out: when selecting directory below trunk, ask whether to check
+  out directories up to trunk non-recursively
+- Commit: allow to use "One Commit Message" even when different
+  buqgtraq-properties are present
+- Commit: check for inconsistent svn:eol-style before commit
+- Commit: remember "One commit message"/"Individual commit messages"
+  selection
+- Commit: warn if committing switched entries
+- Compare Repository Directories: distinguish between content/property
+  modifications
+- Create Patch between URLs: can be cancelled
+- Edit|Customize: customize accelerators directly in the current frame
+  instead of the preferences
+- Log, Revision Graph: ability to display the directory property changes
+- Log, Transactions: verbose date formatting
+- Log/Revision Graph: remember frame layout
+- Log: "Commit Info" field shows more details about the current revision
+- Merge: support for "!" in revision ranges to exclude revisions
+- Output view: query commands are not displayed anymore
+- Output view: new icons
+- Progress Bar: hidden if nothing is progressing
+- Refresh (Windows): conflicting names (in .svn/entries) are detected
+  and reported
+- Refresh: give priority in refreshing the path from root down to the
+  currently selected file
+- Repository Browser: file filter input field
+- Repository Browser: character encoding used to display file contents can
+  be changed
+- Repository Browser: Create Directory has option to create
+  trunk-branch-tag structure
+- Repository Browser: Remove is applicable on multiple directories
+- Repository Browser: Open allows to enter arbitrary URL
+- Repository Browser: inapplicable actions are not disabled, but show
+  information dialog when being invoked
+- Status bar: shows the number of selected directories (not just files)
+- Switch: tell user to relocate, if they URL instead of path has been
+  entered
+- Toolbar: button for Modify|Switch
+- Toolbar: ability to add stretching separators for being able to create
+  larger button groups
+- Text editors: ability to use non-fixed fonts, allowing asian characters
+  to be displayed correctly
+- Transactions: Configure Watched URLs dialog remembers size
+- Transactions: ability to group by watched URL
+- Update: "Include externals" instead of "Ignore externals"
+- Various commands: spell checking for "commit message" editors
+- Various frames: display of transferred bytes
+- xMerge: optionally update working copy to clean revision
+
+Fixed Bugs (since SmartSVN 6.5)
+-------------------------------
+- Commit: confusing error message when trying to commit merged changes
+- Change Sets: if an unchanged entry is *intentionally* added to Change
+  Set, "allow only committable entries" has not been reset
+- Log Cache: possible internal error
+- Merge dialog: when selecting a history branch with @<revision>, the
+  input field was not filled with the @<revision>
+- Refresh: confusing error message if a working copy was removed from a
+  multi-root project
+- Remote State: possible internal error
+- Repository Browser: Tag-Branch-Layouts were not considered for Revision
+  Graph
+- Repository Profiles: duplicate Profiles might have caused confusion for
+  authentication
+- Revision Graph: possible mis-detection of removed tags/branches
+- Revision chooser: previously selected "Peg revision" was reset on
+  re-opening
+- Transactions: for a revision for which e.g. multiple tags have been
+  removed, only "." instead of tag name was displayed
+- Transactions: possible internal error when invoking actions
+- Update dialog (and others): HEAD got disabled after Peg revision has
+  been set in the revision browser
+- Various commands: after cancelling the "Configure Tag-Branch-Layout"
+  dialog, the command's dialog was still displayed
+- Various commands: possible internal error related to DAV-URL checks
+- Various commands: revision choosers were not reset when invoking the
+  command on a different location
+- Various commands: table cells with HTML text autowrap under certain
+  conditions
+- xMerge preview: Revision Graph is not enabled in most cases
